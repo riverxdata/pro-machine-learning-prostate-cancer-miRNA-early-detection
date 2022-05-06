@@ -1,4 +1,3 @@
-from numpy import number
 import scripts.machine_learning as ml
 import pandas as pd
 # Process data
@@ -71,9 +70,18 @@ features
 #        'MIMAT0022259', 'MIMAT0022713', 'MIMAT0022838', 'MIMAT0022924',
 #        'MIMAT0023701', 'MIMAT0027580'],
 #       dtype='object')
+
 # 02. Prepare data
-all_inputs = ml.data_prepare(
-    train_test, validation, test_size, number_of_folds, number_of_features, method)
+# all_inputs = ml.data_prepare(
+#     train_test, validation, test_size, number_of_folds, number_of_features, method)
+
 # 03. Run model
-ml.parallel(
-    all_inputs, "/home/nguyen/Desktop/Tools/Machine-Learning-BenchMarking-Classification/example_data/results", 4)
+# ml.parallel(
+#     all_inputs, "/home/nguyen/Desktop/Tools/Machine-Learning-BenchMarking-Classification/example_data/results", 4)
+
+# 04. Collect result
+# ml.save_result("/home/nguyen/Desktop/Projects/miRNA/v3_data/result_50_minmax/")
+
+# 05. Visualization
+result = ml.save_models('/home/nguyen/Desktop/Projects/miRNA/v3_data/result_50_minmax/', train_test,
+                        validation, num_folds=5, num_of_selected_features=2, test_size=0.5, method="MinMax")
